@@ -1,0 +1,59 @@
+<section id="projects" class="text-gray-400 body-font">
+    <div class="container px-5 py-24 mx-auto">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font text-white mb-8">Proyectos</h1>
+        <div class="w-full">
+            <mat-form-field class="w-full sm:w-1/4 md:w-1/3">
+                <label class="text-gray-700">Skills</label>
+                <mat-select [formControl]="skills" multiple>
+                    <mat-option *ngFor="let skill of skillsList" [value]="skill">{{ skill }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="grid col-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 mb-20">
+            <div *ngFor="let project of filteredProjects"
+                class="flex flex-col items-center rounded-lg shadow-sm md:flex-row md:max-w-xl  border-gray-700 bg-gray-800 transform transition-transform duration-300 ease-in-out hover:bg-gray-700  hover:scale-110">
+                <div class="w-full flex items-center justify-center p-4">
+                    <img class="object-cover w-48 h-40 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+                        [src]="project.logo" alt="">
+                </div>
+                <div class="flex flex-col justify-between p-4 leading-normal">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ project.name }}</h5>
+                    <p class="mb-3 font-normal text-gray-400">{{ project.description }}</p>
+                    <a *ngIf="project.hasUrl" [href]="project.url" class="z-10 max-w-fit" target="_blank">
+                        <button class="relative group overflow-hidden px-4 h-8 rounded-full flex space-x-2 items-center bg-gradient-to-r from-red-500 to-red-600 hover:to-red-800 my-2">
+                            <span class="relative text-sm text-white">Visitar sitio</span>
+                            <div class="flex items-center -space-x-3 translate-x-3">
+                                <div class="w-2.5 h-[1.6px] rounded bg-white origin-left scale-x-0 transition duration-300 group-hover:scale-x-100"></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-white -translate-x-2 transition duration-300 group-hover:translate-x-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </button>
+                    </a>
+                    <div class="flex items-start gap-x-2 my-4">
+                        <i *ngIf="project.skills.includes('PHP')" class="fa-brands fa-php fa-lg text-purple-600"></i>
+                        <i *ngIf="project.skills.includes('Node')" class="fa-brands fa-node-js fa-lg text-lime-600"></i>
+                        <svg *ngIf="project.skills.includes('C#')" class="w-5 h-5 -mt-2 text-indigo-600"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="currentColor">
+                            <path
+                                d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.8 0-1.7-.4-2.6zm-53.5 70c-21.8 0-39.5-17.7-39.5-39.5S42.2 24.5 64 24.5c14.7 0 27.5 8.1 34.3 20l-13 7.5C81.1 44.5 73.1 39.5 64 39.5c-13.5 0-24.5 11-24.5 24.5s11 24.5 24.5 24.5c9.1 0 17.1-5 21.3-12.4l12.9 7.6c-6.8 11.8-19.6 19.8-34.2 19.8zM115 62h-3.2l-.9 4h4.1v5h-5l-1.2 6h-4.9l1.2-6h-3.8l-1.2 6h-4.8l1.2-6H94v-5h3.5l.9-4H94v-5h5.3l1.2-6h4.9l-1.2 6h3.8l1.2-6h4.8l-1.2 6h2.2v5zm-12.7 4h3.8l.9-4h-3.8z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <i *ngIf="project.skills.includes('Laravel')"
+                            class="fa-brands fa-laravel fa-lg text-red-600"></i>                        
+                        <svg *ngIf="project.skills.includes('TS')" role="img" class="w-5 h-5 -mt-2 text-blue-600" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><title>TypeScript</title><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>
+                        <i *ngIf="project.skills.includes('React')"
+                            class="fa-brands fa-react fa-lg text-blue-600"></i>
+                        <i *ngIf="project.skills.includes('Symfony')" class="fa-brands fa-symfony fa-lg text-white"></i>
+                        <i *ngIf="project.skills.includes('Angular')"
+                            class="fa-brands fa-angular fa-lg text-fuchsia-600"></i>
+                        <i *ngIf="project.skills.includes('Vue')" class="fa-brands fa-vuejs fa-lg text-green-600"></i>
+                        <i *ngIf="project.skills.includes('HTML')" class="fa-brands fa-html5 fa-lg text-orange-600"></i>
+                        <i *ngIf="project.skills.includes('JS')" class="fa-brands fa-js fa-lg text-yellow-400"></i>
+                        <i *ngIf="project.skills.includes('CSS')" class="fa-brands fa-css3-alt fa-lg text-sky-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

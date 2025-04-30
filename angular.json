@@ -27,9 +27,13 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/flowbite/dist/flowbite.min.js"
+            ],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
@@ -90,12 +94,19 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/flowbite/dist/flowbite.min.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9d87864a-1ec3-4074-b59c-f4dbb5d1bb12"
   }
 }
